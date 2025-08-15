@@ -13,7 +13,6 @@ def main():
     )
     
     st.title("📚 GitHub Architecture Documentation Generator")
-    st.markdown("Generate comprehensive architecture documentation from GitHub repositories using AI")
     
     # Sidebar for configuration
     with st.sidebar:

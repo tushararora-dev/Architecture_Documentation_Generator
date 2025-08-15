@@ -20,7 +20,6 @@ File analysis scope: Analyze ALL relevant files in repositories while filtering 
 - **Core Functions** (Function-based architecture per user preference):
   - `github_analyzer_functions.py`: Functions for GitHub repository analysis and data extraction
   - `document_generator_functions.py`: Functions for document creation in PDF and DOCX formats
-  - `utils.py`: Utility functions for URL validation and repository information extraction
 
 ## AI Integration
 - **AI Provider**: Google Gemini AI API for code analysis and documentation generation

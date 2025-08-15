@@ -291,11 +291,33 @@ def build_analysis_prompt(repo_structure: Dict, options: Dict[str, bool]) -> str
     
     for file_path, file_data in sorted_files[:25]:  # Analyze up to 25 most important files
         key_files_content += f"\n### {file_path}:\n"
-        content_preview = file_data['content'][:3000]  # First 3000 chars
-        if len(file_data['content']) > 3000:
+        content_preview = file_data['content'][:15000]  # First 3000 chars
+        if len(file_data['content']) > 15000:
             content_preview += "...\n[File truncated for analysis]"
         key_files_content += f"```{file_data['type']}\n{content_preview}\n```\n"
     
+
+    # # Analyze ALL relevant files (no artificial limit)
+    # for file_path, file_data in sorted_files:
+    #     key_files_content += f"\n### {file_path}:\n"
+        
+    #     # For larger files, use intelligent truncation
+    #     content = file_data['content']
+    #     if len(content) > 5000:
+    #         # For large files, include beginning, middle snippet, and end
+    #         content_preview = (
+    #             content[:2000] + 
+    #             "\n... [middle section truncated] ...\n" +
+    #             content[-2000:]
+    #         )
+    #         content_preview += f"\n[File size: {len(content)} chars, showing key sections]"
+    #     else:
+    #         content_preview = content
+            
+    #     key_files_content += f"```{file_data['type']}\n{content_preview}\n```\n"
+
+
+
     # Build analysis requirements
     requirements = []
     if options.get('include_diagrams', True):
